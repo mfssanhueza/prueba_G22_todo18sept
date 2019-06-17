@@ -9,7 +9,12 @@ class User < ApplicationRecord
 
   def addTodos
     Todo.all.each do |todo|
-      self.todos << todo
+    user_todo =  UserTodo.new(
+      user_id: self.id,
+      todo_id: todo.id,
+      completed: false
+    )
+    user_todo.save
     end
   end
 end
