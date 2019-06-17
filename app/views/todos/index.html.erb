@@ -8,14 +8,11 @@
         <%= image_tag todo.picture, class:'card-img-top'%>
         <div class="card-body">
           <h5 class="card-title"><%= todo.name %></h5>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <%= link_to 'Ver', todo_show_path(todo), class:'btn btn-primary' %>
         </div>
       </div>
-
     </div>
-
     <% end %>
-
   </div>
   <br>
 <% end %>
