@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_17_144356) do
+ActiveRecord::Schema.define(version: 2019_06_17_145617) do
+
+  create_table "todos", force: :cascade do |t|
+    t.string "name"
+    t.string "picture"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_todos", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "todo_id"
+    t.boolean "completed", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["todo_id"], name: "index_user_todos_on_todo_id"
+    t.index ["user_id"], name: "index_user_todos_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

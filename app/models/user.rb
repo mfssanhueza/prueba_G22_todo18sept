@@ -3,4 +3,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  after_create :addTodos
+  has_many :user_todos
+  has_many :todos, through: :user_todos
+
+  def addTodos
+
+  end
 end
