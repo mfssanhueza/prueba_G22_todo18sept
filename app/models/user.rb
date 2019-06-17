@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :todos, through: :user_todos
 
   def addTodos
-
+    Todo.all.each do |todo|
+      self.todos << todo
+    end
   end
 end
